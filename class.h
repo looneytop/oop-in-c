@@ -1,25 +1,27 @@
 #ifndef CLASS_H
 #define CLASS_H
 
+// то что видит юзер
 // Класс Person
-typedef struct {
+typedef struct Person {
     int age;
     char* name;
+
+    void (*print)(struct Person* self);
+    void (*set_age)(struct Person* self, int new_age);
 } Person;
 
-// методы
-void init_user(Person* User, int age, const char* name);
-void print_user(Person* User);
-void destroy_user(Person* User);
-
 // Класс Rectangle
-typedef struct {
+typedef struct Rectangle {
     double len;
     double wid;
+
+    void (*print)(struct Rectangle* self);
+    double (*area)(struct Rectangle* self);
 } Rectangle;
 
-void init_rect(Rectangle* Rect, double len, double wid);
-void print_rect_info(Rectangle* Rect);
-double print_rect_area(Rectangle* Rect); // тут реализован метод Абстракции
+// деструкторы(юзер не видит этого)
+void person_destroy(Person* p);
+void rectangle_destroy(Rectangle* r);
 
 #endif 
