@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "class.h"
 
-int main(){
+int main(){     // ну нужно поработать над этим файлов (не воркает)
     Person user;
     init_user(&user, 11, "Lol Kek");
     print_user(&user);
