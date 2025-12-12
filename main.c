@@ -16,12 +16,6 @@ int main(){     // ну нужно поработать над этим файл
 
     Person* kiruha = create_person(18, "Kirill Lepino", 181.0);
     
-    if (kiruha == NULL) {
-        printf("Failed to create Kirill object!\n");
-        sergey->destroy(sergey);
-        return 1;
-    }
-    
     kiruha->print(kiruha);
     kiruha->setAge(kiruha, 23);
     kiruha->print(kiruha);
