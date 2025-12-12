@@ -1,27 +1,37 @@
 #ifndef CLASS_H
 #define CLASS_H
 
-// то что видит юзер
-// Класс Person
-typedef struct Person {
+
+// class Person
+typedef struct Person Person;
+
+struct Person {
     int age;
     char* name;
+    double height;
 
-    void (*print)(struct Person* self);
-    void (*set_age)(struct Person* self, int new_age);
-} Person;
+    void (*print)(Person* self);
+    void (*setAge)(Person* self, int new_age);
+    void (*destroy)(Person* self);
+};
 
-// Класс Rectangle
-typedef struct Rectangle {
+// аля конструктор(фабрика)
+Person* create_person(int age, const char* name, double height);
+
+// class Rectangle
+typedef struct Rectangle Rectangle;
+
+struct Rectangle {
     double len;
     double wid;
+    
+    void (*print)(Rectangle* self);
+    double (*area)(Rectangle* self);
+    double (*perimeter)(Rectangle* self);
+    void (*destroy)(Rectangle* self);
+};
 
-    void (*print)(struct Rectangle* self);
-    double (*area)(struct Rectangle* self);
-} Rectangle;
-
-// деструкторы(юзер не видит этого)
-void person_destroy(Person* p);
-void rectangle_destroy(Rectangle* r);
+// аля конструктор(фабрика)
+Rectangle* create_rectangle(double len, double wid); 
 
 #endif 
